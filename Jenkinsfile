@@ -11,6 +11,12 @@ pipeline {
                     sh "mvn -B -Dskiptests clean package"
                 }
        }
+    stage('Deploy') {
+          steps {
+                  
+                    sh 'cp /var/lib/jenkins/workspace/test_pipeline_project/target/java-hello-world.war /opt/tomcat/webapps/'
+                }
+       }
        
     }
   }
